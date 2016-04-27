@@ -49,6 +49,10 @@ void Box::project(const Vector3 &axe,double *mini,double *maxi) const {
   double kmin=0.0,kmax=0.0;
   // A compléter : l'intervalle [kmin,kmax] doit correspondre à la projection de la boite sur l'axe
 
+   for(int i=0; i<4; i++){
+       kmin=min(kmin, this->vertex(i).dot());
+       kmax=max(kmax, this->vertex(i).dot());
+   }
 
   *mini=kmin;
   *maxi=kmax;
